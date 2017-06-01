@@ -6,6 +6,7 @@
 <ul id = "venues">
    <% @venues.each do |c| %>
    <li><%= link_to c.name, {:action => 'show', :id => c.id} -%></li>
+   <b> <%= link_to 'Edit', {:action => "edit", :id => c.id} %></b>
    <% end %>
 </ul>
 

@@ -26,7 +26,7 @@ class VenueController < ApplicationController
    end
    
    def edit
-   	@book = Book.find(params[:id])
+   	@venue = Venue.find(params[:id])
    end
    
    def update

@@ -1,0 +1,13 @@
+<h1>Edit Venue Details</h1>
+
+<%= form_for @venue, :url =>{:action => "update", :id =>@venue} do |f| %>
+
+<p>Name: <%= f.text_field 'name' %></p>
+<p>Address: <%= f.text_field  'address' %></p>
+<p>City: <%= f.text_field  'city' %></p>
+<p>State: <%= f.text_field  'state' %></p>
+
+<%= f.submit "Save changes" %>
+<% end %>
+
+<%= link_to 'Back', {:action => 'list' } %>

@@ -1,0 +1,12 @@
+<h1><%= @venue.name %></h1>
+
+<p>
+   <strong>Address: </strong> <%= @venue.address %><br />
+   <strong>City :</strong> <%= @venue.city %><br />
+   <strong>State :</strong> <%= @venue.state %><br />
+   <strong>Created Date:</strong> <%= @venue.created_at %><br />
+</p>
+
+<hr />
+
+<%= link_to 'Back', {:action => 'list'} %>
