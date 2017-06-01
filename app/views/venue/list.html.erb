@@ -1,0 +1,13 @@
+<% if @venues.blank? %>
+<p>There are no venues currently in the system.</p>
+<% else %>
+<p>The following venues are present in the system:</p>
+
+<ul id = "venues">
+   <% @venues.each do |c| %>
+   <li><%= link_to c.name, {:action => 'show', :id => c.id} -%></li>
+   <% end %>
+</ul>
+
+<% end %>
+<p><%= link_to "Add new Venue", {:action => 'new' }%></p>

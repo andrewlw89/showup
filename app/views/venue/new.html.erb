@@ -1,0 +1,20 @@
+<h1>Add new venue</h1>
+
+<%= form_tag :action => 'create' do %>
+
+<p><label for = "venue_name">Name</label>:
+<%= text_field 'venues', 'name' %></p>
+
+<p><label for = "venue_address">Address</label>:
+<%= text_field 'venues', 'address' %></p>
+
+<p><label for = "venue_city">City</label>:
+<%= text_field 'venues', 'city' %></p>
+
+<p><label for = "venue_state">State</label>:
+<%= text_field 'venues', 'state' %></p>
+
+<%= submit_tag "Create" %>
+
+<% end -%>
+<%= link_to 'Back', {:action => 'list'} %>
