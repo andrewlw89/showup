@@ -1,5 +1,5 @@
-class VenueController < ApplicationController
-	def list
+class VenuesController < ApplicationController
+	def index
 		@venues = Venue.all
    end
    
@@ -15,14 +15,14 @@ class VenueController < ApplicationController
    	@venue = Venue.new(venue_params)
 
    	if @venue.save
-   		redirect_to :action => 'list'
+   		redirect_to :action => 'index'
    	else
    		render :action => 'new'
    	end
    end
 
    def venue_params
-   	params.require(:venues).permit(:name, :address, :city, :state)
+   	params.require(:venue).permit(:name, :address, :city, :state, :photo)
    end
    
    def edit
@@ -38,13 +38,9 @@ class VenueController < ApplicationController
    		render :action => 'edit'
    	end
    end
-
-   def venue_param
-   	params.require(:venue).permit(:name, :address, :city, :state)
-   end
    
-   def delete
+   def destroy
     Venue.find(params[:id]).destroy
-    redirect_to :action => 'list'
+    redirect_to venues_url
    end
 end

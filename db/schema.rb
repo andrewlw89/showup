@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601004103) do
+ActiveRecord::Schema.define(version: 20170601233245) do
 
   create_table "venues", force: :cascade do |t|
     t.string "name", limit: 32, null: false
@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 20170601004103) do
     t.string "city", limit: 32, null: false
     t.string "state", limit: 2, null: false
     t.datetime "created_at"
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
 end

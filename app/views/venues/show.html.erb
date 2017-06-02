@@ -5,8 +5,9 @@
    <strong>City :</strong> <%= @venue.city %><br />
    <strong>State :</strong> <%= @venue.state %><br />
    <strong>Created Date:</strong> <%= @venue.created_at %><br />
+   <%= image_tag @venue.photo.url %>
 </p>
 
 <hr />
 
-<%= link_to 'Back', {:action => 'list'} %>
+<%= link_to 'Back', {:action => 'index'} %>
