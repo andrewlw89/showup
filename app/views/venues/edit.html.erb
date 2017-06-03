@@ -6,6 +6,7 @@
 <p>Address: <%= f.text_field  'address' %></p>
 <p>City: <%= f.text_field  'city' %></p>
 <p>State: <%= f.text_field  'state' %></p>
+<p><%= f.file_field :photo %></p>
 
 <%= f.submit "Save changes" %>
 <% end %>

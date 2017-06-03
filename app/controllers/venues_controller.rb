@@ -32,7 +32,7 @@ class VenuesController < ApplicationController
    def update
    	@venue = Venue.find(params[:id])
 
-   	if @venue.update_attributes(venue_param)
+   	if @venue.update_attributes(venue_params)
    		redirect_to :action => 'show', :id => @venue
    	else
    		render :action => 'edit'
