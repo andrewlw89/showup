@@ -6,6 +6,7 @@
    <strong>State :</strong> <%= @venue.state %><br />
    <strong>Created Date:</strong> <%= @venue.created_at %><br />
    <%= image_tag @venue.photo.url %>
+   <%= image_tag google_map(@venue) %>
 </p>
 
 <hr />

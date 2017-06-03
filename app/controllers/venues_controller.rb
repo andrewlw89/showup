@@ -43,4 +43,7 @@ class VenuesController < ApplicationController
     Venue.find(params[:id]).destroy
     redirect_to venues_url
    end
+
+   
+   #helper_method :google_map
 end
