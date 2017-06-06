@@ -5,6 +5,5 @@ class Venue < ApplicationRecord
 	validates_presence_of :state
 	has_attached_file :photo
 	validates_attachment_content_type :photo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-	# geocoded_by :address
-	# after_validation :geocode
+	belongs_to :owner
 end
