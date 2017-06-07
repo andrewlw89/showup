@@ -1,7 +1,7 @@
 <h1><%= @venue.name %></h1>
 
 <p>
-   <strong>Owner: </strong> <%= @venue.owner.email %><br />
+   <strong>Owner: </strong> <%= @venue.owner.first_name + ' ' + @venue.owner.last_name %><br />
    <strong>Address: </strong> <%= @venue.address %><br />
    <strong>City :</strong> <%= @venue.city %><br />
    <strong>State :</strong> <%= @venue.state %><br />
