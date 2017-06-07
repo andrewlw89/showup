@@ -1,6 +1,6 @@
 class VenuesController < ApplicationController
 	def index
-		@venues = Venue.all
+		@venues = current_owner.venues
    end
    
    def show
