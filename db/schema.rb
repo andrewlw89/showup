@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20170606232945) do
     t.string "photo_content_type"
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer "owner_id"
+    t.index ["owner_id"], name: "index_venues_on_owner_id"
   end
 
 end

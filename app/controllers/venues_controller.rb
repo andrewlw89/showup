@@ -13,7 +13,7 @@ class VenuesController < ApplicationController
    
    def create
    	@venue = Venue.new(venue_params)
-
+      @venue.owner = current_owner
    	if @venue.save
    		redirect_to :action => 'index'
    	else
@@ -44,6 +44,4 @@ class VenuesController < ApplicationController
     redirect_to venues_url
    end
 
-   
-   #helper_method :google_map
 end
