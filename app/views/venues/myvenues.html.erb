@@ -6,7 +6,10 @@
 <ul id = "venues">
    <% @venues.each do |c| %>
    <li><%= link_to c.name, venue_path(c) -%>
+   <b> <%= link_to 'Edit', edit_venue_path(c) %></b>
+   <b> <%= link_to "Delete", c,  method: :delete %></b></li>
    <% end %>
 </ul>
 
 <% end %>
+<p><%= link_to "Add new Venue", {:action => 'new' }%></p>

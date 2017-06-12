@@ -1,15 +1,25 @@
 <h1><%= @venue.name %></h1>
 
 <p>
-   <strong>Owner: </strong> <%= @venue.owner.first_name + ' ' + @venue.owner.last_name %><br />
-   <strong>Address: </strong> <%= @venue.address %><br />
-   <strong>City :</strong> <%= @venue.city %><br />
-   <strong>State :</strong> <%= @venue.state %><br />
-   <strong>Created Date:</strong> <%= @venue.created_at %><br />
-   <%= image_tag @venue.photo.url %>
-   <%= image_tag google_map(@venue) %>
-</p>
+   	<strong>Owner: </strong> <%= @venue.owner.first_name + ' ' + @venue.owner.last_name %><br />
+   	<strong>Address: </strong> <%= @venue.address %><br />
+   	<strong>City :</strong> <%= @venue.city %><br />
+   	<strong>State :</strong> <%= @venue.state %><br />
+   	<strong>Created Date:</strong> <%= @venue.created_at %><br />
+   	<%= image_tag @venue.photo.url %>
+   	<%= image_tag google_map(@venue) %>
+   	<% if @venue.events.blank? %>
+		<p>There are no events for this venue.</p>
+	<% else %>
+		<p>The following events are present in the system:</p>
+   		<h4>Events</h4>
+   		<ul id = "venues">
+		<% @venue.events.each do |event| %>
+  			<li><%= link_to event.name, venue_event_path(event) -%>	
+		<% end %>
+		</ul>
+	<% end %>
 
 <hr />
-
-<%= link_to 'Back', {:action => 'index'} %>
+<%= link_to 'Add event', new_venue_event_path(@venue) %><br />
+<%= link_to 'Back', {:action => 'myvenues'} %>

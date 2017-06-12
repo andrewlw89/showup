@@ -1,0 +1,13 @@
+byebug
+<%= form_for ([@venue, @event]) do |f| %>
+
+<p>Event Name: <%= f.text_field :name %></p>
+<p>Artist: <%= f.text_field  :artist %></p>
+<p>Cost: <%= f.text_field  :cost %></p>
+<p>Date: <%= f.date_field  :date %></p>
+
+<%= f.submit "Submit" %>
+<% end %>
+
+<%= link_to 'Back', venue_path(@venue) %>
+</p>

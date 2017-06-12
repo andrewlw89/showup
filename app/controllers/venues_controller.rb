@@ -1,8 +1,13 @@
 class VenuesController < ApplicationController
-	def index
-		@venues = current_owner.venues
+	
+   def index
+		@venues = Venue.all
    end
    
+   def myvenues
+      @venues = current_owner.venues
+   end
+
    def show
    	@venue = Venue.find(params[:id])
    end
@@ -15,7 +20,7 @@ class VenuesController < ApplicationController
    	@venue = Venue.new(venue_params)
       @venue.owner = current_owner
    	if @venue.save
-   		redirect_to :action => 'index'
+   		redirect_to :action => 'myvenues'
    	else
    		render :action => 'new'
    	end

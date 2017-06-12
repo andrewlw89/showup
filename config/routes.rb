@@ -11,5 +11,12 @@ Rails.application.routes.draw do
   # get 'venue/delete'
   # get 'venue/update'
   root to: "venues#index"
-  resources :venues
+  
+  resources :venues do
+    collection do
+      get :myvenues
+    end
+    resources :events
+  end
+
 end
