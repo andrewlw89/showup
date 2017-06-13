@@ -1,6 +1,6 @@
 <h1>Edit Venue Details</h1>
 
-<%= form_for @venue, :url =>{:action => "update", :id =>@venue} do |f| %>
+<%= form_for @event, :url =>{:action => "update", :id => @event} do |f| %>
 
 <p>Name: <%= f.text_field 'name' %></p>
 <p>Address: <%= f.text_field  'address' %></p>

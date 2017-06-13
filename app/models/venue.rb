@@ -6,6 +6,6 @@ class Venue < ApplicationRecord
 	has_attached_file :photo
 	validates_attachment_content_type :photo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 	belongs_to :owner
-	has_many :events
+	has_many :events, dependent: :destroy
 	accepts_nested_attributes_for :events
 end

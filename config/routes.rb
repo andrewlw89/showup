@@ -13,10 +13,10 @@ Rails.application.routes.draw do
   root to: "venues#index"
   
   resources :venues do
+    resources :events
     collection do
       get :myvenues
     end
-    resources :events
   end
 
 end

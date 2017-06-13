@@ -15,7 +15,9 @@
    		<h4>Events</h4>
    		<ul id = "venues">
 		<% @venue.events.each do |event| %>
-  			<li><%= link_to event.name, venue_event_path(event) -%>	
+  			<li><%= link_to event.name, venue_event_path(@venue, event) %>
+         <b> <%= link_to 'Edit', edit_venue_event_path(@venue, event) %></b>
+         <b> <%= link_to "Delete", [@venue, event], confirm: 'Are you sure?', method: :delete %></b></li>
 		<% end %>
 		</ul>
 	<% end %>

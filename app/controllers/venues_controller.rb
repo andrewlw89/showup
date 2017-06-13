@@ -46,7 +46,7 @@ class VenuesController < ApplicationController
    
    def destroy
     Venue.find(params[:id]).destroy
-    redirect_to venues_url
+    redirect_to :action => 'myvenues'
    end
 
 end

@@ -1,0 +1,9 @@
+<h1><%= @event.name %></h1>
+
+<p>
+   	<strong>Artist: </strong> <%= @event.artist %><br />
+   	<strong>Cost :</strong> <%= @event.cost %><br />
+   	<strong>Date :</strong> <%= @event.date %><br />
+
+<hr />
+<%= link_to 'Back', venue_path(@venue) %>
