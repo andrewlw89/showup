@@ -43,9 +43,9 @@ class EventsController < ApplicationController
     redirect_to venue_path(@venue)
   end
 
-  def star
-    Like.new << event: @event, user: current_user
-  end
+  # def star
+  #   Like.new << event: @event, owner: current_owner
+  # end
 
 	private
 

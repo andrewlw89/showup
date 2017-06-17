@@ -23,8 +23,8 @@
 	<% end %>
 
 <hr />
-<% link_to 'Add event', new_venue_event_path(@venue) %><br />
-<% if current_user %>
+<%= link_to 'Add event', new_venue_event_path(@venue) %><br />
+<% if current_owner %>
    <%= link_to 'Back', {:action => 'myvenues'} %>
 <% else %>
    <%= link_to 'Back', {:action => 'index'} %>
