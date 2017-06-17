@@ -7,13 +7,18 @@ class EventsController < ApplicationController
   end
 
 	def create
-		@event = @venue.events.create(event_params)
-		if @event.save
-   			redirect_to venue_path(@venue)
-   		else
-   			render :action => 'new'
-   		end 
-	end
+		
+		respond_to do |format|
+      if @event = @venue.events.create(event_params)
+        OwnerMailer.new_event_mail(@event).deliver_later
+        format.html { redirect_to venue_path(@venue), notice: 'Event was successfully booked guy.'}
+  	    format.json { render :show, status: :created, location: @event }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
 	def show
    		@event = @venue.events.find(params[:id])
@@ -36,6 +41,10 @@ class EventsController < ApplicationController
   def destroy
     @venue.events.find(params[:id]).destroy
     redirect_to venue_path(@venue)
+  end
+
+  def star
+    Like.new << event: @event, user: current_user
   end
 
 	private

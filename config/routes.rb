@@ -1,22 +1,14 @@
 Rails.application.routes.draw do
+  resources :users
   devise_for :owners, :controllers => { registrations: 'registrations' }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # get 'venue/list'
-  # get 'venue/new'
-  # post 'venue/create'
-  # patch 'venue/update'
-  # get 'venues/'
-  # get 'venue/show'
-  # get 'venue/edit'
-  # get 'venue/delete'
-  # get 'venue/update'
   root to: "venues#index"
   
   resources :venues do
-    resources :events
+    resources :events do
+      put :like, on: :member
+    end
     collection do
       get :myvenues
     end
   end
-
 end
