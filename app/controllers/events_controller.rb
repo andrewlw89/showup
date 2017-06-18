@@ -43,10 +43,26 @@ class EventsController < ApplicationController
     redirect_to venue_path(@venue)
   end
 
-  # def star
-  #   Like.new << event: @event, owner: current_owner
-  # end
+  def like
+    @event = Event.find(params[:id])
+    @event.liked_by current_user
+    if request.xhr?
+      render json: { count: @event.get_likes.size, id: params[:id] }
+    else
+    redirect_to :action => 'show', :id => @event
+  end
+    
+  end
 
+  def dislike
+    @event = Event.find(params[:id])
+    @event.disliked_by current_user
+    if request.xhr?
+      render json: { count: @event.get_likes.size, id: params[:id] }
+    else
+      redirect_to :action => 'show', :id => @event
+    end
+  end
 	private
 
 		def event_params

@@ -1,7 +1,11 @@
-<h2>Sign up</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+  
+  <% if resource_name == :user %>
+  <h2>Create new user account</h2>
+  <% elsif resource_name == :owner %>
+  <h2>Create new owner account</h2>
+  <% end %>
 
   <div class="field">
     <%= f.label :first_name %><br />

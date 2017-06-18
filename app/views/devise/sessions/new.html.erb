@@ -1,6 +1,10 @@
-<h2>Log in</h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <% if resource_name == :user %>
+    <h2>User login</h2>
+  <% elsif resource_name == :owner %>
+    <h2>Owner login</h2>
+  <% end %>
   
   <div class="field">
     <%= f.label :email %><br />

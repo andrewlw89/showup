@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+   
 	
    def index
 		@venues = Venue.all
@@ -6,6 +7,10 @@ class VenuesController < ApplicationController
    
    def myvenues
       @venues = current_owner.venues
+   end
+
+   def myvenue
+      @venue = Venue.find(params[:id])
    end
 
    def show

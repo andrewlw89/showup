@@ -4,6 +4,19 @@
    	<strong>Artist: </strong> <%= @event.artist %><br />
    	<strong>Cost :</strong> <%= @event.cost %><br />
    	<strong>Date :</strong> <%= @event.date %><br />
+<% if user_signed_in? %>
+	<% if current_user.liked? @event %>
+	  <%= link_to "Dislike", dislike_venue_event_path(@event), class: 'vote', method: :put, remote: true, data: { toggle_text: 'Like', toggle_href: like_venue_event_path(@event), id: @event.id } %>
+	<% else %>
+	  <%= link_to "Like", like_venue_event_path(@event), class: 'vote', method: :put, remote: true, data: { toggle_text: 'Dislike', toggle_href: dislike_venue_event_path(@event), id: @event.id } %>
+	<% end %>
+	<span> · </span>
+<% end %>
+
+<span class="votes-count" data-id="<%= @event.id %>">
+  <%= @event.get_likes.size %>
+</span> users like this
+<br>
 
 <hr />
 <%= link_to 'Back', venue_path(@venue) %>
