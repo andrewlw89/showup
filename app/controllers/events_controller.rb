@@ -47,18 +47,21 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.liked_by current_user
     if request.xhr?
-      render json: { count: @event.get_likes.size, id: params[:id] }
+      respond_to do |format|
+        format.json {render json: { count: @event.get_likes.size, id: params[:id] }}
+      end
     else
-    redirect_to :action => 'show', :id => @event
-  end
-    
+      redirect_to :action => 'show', :id => @event
+    end
   end
 
   def dislike
     @event = Event.find(params[:id])
     @event.disliked_by current_user
     if request.xhr?
-      render json: { count: @event.get_likes.size, id: params[:id] }
+      respond_to do |format|
+        format.json {render json: { count: @event.get_likes.size, id: params[:id] }}
+      end
     else
       redirect_to :action => 'show', :id => @event
     end
